@@ -8,10 +8,10 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// app.get('/', (req, res) => {
+//     res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
+// })
 app.get('/', (req, res) => {
-    res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
-})
-app.post('/', (req, res) => {
     const jscode = req.body['js-code']//JSON.parse(req.body)
     console.log(req.body, jscode)
     if (jscode) {
