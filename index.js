@@ -10,10 +10,10 @@ app.use(express.urlencoded({ extended: false }))
 const router = express.Router()
 
 app.use('/', router)
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
 })
-app.post('/api/', (req, res) => {
+router.post('/api/', (req, res) => {
     const jscode = req.body['js-code']//JSON.parse(req.body)
     console.log(req.body, jscode)
     if (jscode) {
@@ -44,6 +44,9 @@ app.post('/api/', (req, res) => {
             });
         })
 
+    }
+    else {
+        res.send("<h1>Input Error</h1>")
     }
 
 
