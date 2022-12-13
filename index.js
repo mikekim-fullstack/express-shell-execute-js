@@ -9,6 +9,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 const router = express.Router()
 
+const cors = require('cors');
+app.use(cors({
+    origin: ['http://localhost:3000', "http://127.0.0.1:3000", 'https://lalasol-bootcamp.web.app']
+}));
+
+
+
 app.use('/', router)
 router.get('/', (req, res) => {
     res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
