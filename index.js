@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello world.</h1>')
+    res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
 })
 app.post('/', (req, res) => {
     const jscode = req.body['js-code']//JSON.parse(req.body)
