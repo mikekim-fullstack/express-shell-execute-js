@@ -21,25 +21,25 @@ router.post('/api/', (req, res) => {
         const fileName = `${req.body.user}-${req.body.id}.js`
         fs.writeFile(fileName, jscode, function (err) {
             if (err) {
-                console.log('error: ', err)
+                // console.log('error: ', err)
                 res.send(JSON.stringify(err))
                 return;
             }
-            console.log('Saved!');
+            // console.log('Saved!');
 
             const output = shell.exec(`node ${fileName}`, function (code, stdout, stderr) {
                 console.log('Exit code:', code);
                 if (code == 0) {
-                    res.send(stdout)
-                    console.log('Program output:', stdout);
+                    res.send(JSON.stringify(stdout))
+                    // console.log('Program output:', stdout);
                 }
                 else if (code == 1) {
-                    console.log('Program stderr:', stderr);
-                    res.send(stderr)
+                    // console.log('Program stderr:', stderr);
+                    res.send(JSON.stringify(stderr))
                 }
                 fs.unlink(fileName, function (err) {
                     if (err) throw err;
-                    console.log('File deleted!');
+                    // console.log('File deleted!');
                 });
             });
         })
