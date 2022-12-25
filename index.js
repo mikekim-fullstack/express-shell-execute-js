@@ -40,22 +40,34 @@ router.post('/api/', (req, res) => {
                 return;
             }
             // console.log('Saved!');
-
-            const output = shell.exec(`node ${fileName}`, function (code, stdout, stderr) {
-                console.log('Exit code:', code);
-                if (code == 0) {
-                    res.send(JSON.stringify(stdout))
-                    // console.log('Program output:', stdout);
-                }
-                else if (code == 1) {
-                    // console.log('Program stderr:', stderr);
-                    res.send(JSON.stringify(stderr))
-                }
-                /** Delete file */
-                fs.unlink(fileName, function (err) {
-                    if (err) throw err;
+            try {
+                const output = shell.exec(`timeout 10 node ${fileName}`, function (code, stdout, stderr) {
+                    console.log('Exit code:', code);
+                    if (code == 0) {
+                        res.send(JSON.stringify(stdout))
+                        // console.log('Program output:', stdout);
+                    }
+                    else if (code == 1) {
+                        // console.log('Program stderr:', stderr);
+                        res.send(JSON.stringify(stderr))
+                    }
+                    else if (code == 124) {
+                        // console.log('Program stderr:', stderr);
+                        res.send('You might have infinite loop.')
+                    }
+                    else {
+                        res.send(JSON.stringify(stderr))
+                    }
+                    /** Delete file */
+                    fs.unlink(fileName, function (err) {
+                        if (err) throw err;
+                    });
                 });
-            });
+            }
+            catch (e) {
+                console.log('error:', e)
+                res.send(JSON.stringify(e))
+            }
         })
 
     }

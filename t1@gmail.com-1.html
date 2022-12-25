@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--     <link rel="stylesheet" href="index.css"> -->
+    <title>Responsive Single Page</title>
+<style>:root {
+    --bg-content-color: rgba(42, 41, 41, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-image: url('./images/bg.jpg');
+
+    background-position: center;
+    background-size: cover;
+    padding: 52px 30px 30px 30px;
+    color: white;
+
+    position: relative;
+    /* width: 100%;
+    height: 300px; */
+}
+
+header::after {
+    background: rgba(42, 41, 41, .8);
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.header-container {
+    text-align: center;
+    max-width: 768px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    padding: 50px 0;
+
+}
+
+.header-container .title {
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 1.5em;
+}
+
+.header-container p {
+
+    margin: auto;
+    line-height: 1.5em;
+    font-size: 1.1em;
+    font-weight: lighter;
+}
+
+.header-container a {
+    display: inline-block;
+    margin: 30px auto;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: white;
+    border: 1px solid rgb(70, 69, 69);
+    /* width: auto; */
+    padding: 20px 40px;
+    background-color: rgb(42, 41, 41);
+
+}
+
+.header-container a:hover {
+    background-color: rgb(212, 212, 212);
+    color: rgb(28, 28, 28);
+}
+
+.top-container {
+    text-align: center;
+    padding: 30px;
+}
+
+.top-container .title {
+    font-size: 1.7em;
+    font-weight: 700;
+    margin: 0 auto 30px auto;
+}
+
+.top-container .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-container .content p {
+    /* border: 1px dashed pink; */
+    padding: 10px 0;
+    text-align: left;
+}
+
+.middle-container {
+    background: rgb(42, 41, 41);
+    color: white;
+    /* padding: 30px 0px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-container .card {
+    /* border: 1px solid pink; */
+    text-align: center;
+    background: white;
+    color: var(--bg-content-color);
+
+    margin: 20px 10px;
+}
+
+/*  */
+.middle-container .card .img {
+    height: 350px;
+}
+
+.middle-container .card .img.first {
+    background-image: url('https://static.pexels.com/photos/574077/pexels-photo-574077.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.middle-container .card .img.second {
+    background-image: url('https://static.pexels.com/photos/261628/pexels-photo-261628.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.middle-container .card .img.third {
+    background-image: url('https://static.pexels.com/photos/265087/pexels-photo-265087.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.middle-container .card .title {
+    font-size: 1.4em;
+    font-weight: 600;
+    padding: 30px;
+
+}
+
+.middle-container .card p {
+    /* font-size: 1.4em;
+    font-weight: 600; */
+    padding: 0 0 50px 0;
+    line-height: 1.5em;
+
+}
+
+footer {
+    text-align: center;
+
+}
+
+footer .top-content {}
+
+footer .top-content .title,
+footer .middle-content .title {
+    font-size: 1.7em;
+    font-weight: 600;
+    padding: 60px 30px;
+}
+
+footer .top-content p,
+footer .middle-content p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding: 0 20px 50px 20px;
+}
+
+footer .bottom-content {
+    background: black;
+    color: white;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .bottom-content p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    /* padding: 30px 20px 50px 20px;  */
+}
+
+footer .bottom-content span {
+    color: turquoise;
+}
+
+footer .middle-content {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+
+footer .middle-content .contact {
+    background-color: dodgerblue;
+}
+
+footer .middle-content .about {
+    background-color: var(--bg-content-color);
+}
+
+@media screen and (min-width:768px) {
+    .top-container .content {
+        flex-direction: row;
+
+    }
+
+    .top-container .content p {
+        padding: 0 20px
+    }
+
+    .middle-container {
+        flex-direction: row;
+        padding: 0 5px;
+    }
+
+    .middle-container .card {
+        /* margin: 0 10px; */
+        margin: 20px 5px;
+        width: 33.33%;
+    }
+
+
+    footer .middle-content {
+
+        flex-direction: row;
+        /* justify-content: space-evenly; */
+    }
+
+    footer .middle-content>div {
+        width: 50%;
+
+    }
+
+    footer .bottom-content {
+        flex-direction: row;
+
+    }
+
+    footer .bottom-content>p {
+        padding: 0 10px;
+        /* border: 1px dashed white; */
+        width: 50%;
+    }
+
+
+}</style></head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="title">Welcome to LaLaSol LMS Web Solutions</div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci eum error earum soluta voluptatum nisi
+                laboriosam eos saepe asperiores dolorum.</p>
+            <a href="#read-more">Read More</a>
+        </div>
+    </header>
+    <section class="top-container">
+        <div class="title">Web & Application Development</div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laudantium laborum qui dolorum a,
+                quas eligendi harum adipisci modi. Possimus excepturi, rem perspiciatis dolores provident nesciunt optio
+                dolorem dolore asperiores quisquam consectetur perferendis iure velit eos. Similique ut dolorem velit
+                aspernatur unde quos voluptates! Facilis sunt atque velit ad nobis error asperiores. Quos culpa ad
+                blanditiis at velit, quasi suscipit deserunt fugit mollitia distinctio illum provident rem non, porro,
+                magnam soluta? Rerum nesciunt quisquam, itaque enim ad earum perspiciatis fugiat amet dolorum cum minima
+                quaerat porro accusantium a consequatur eum dolores autem? Doloremque quis voluptas, soluta culpa aut
+                voluptatibus eos.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam similique rerum esse minima
+                quaerat culpa mollitia porro ad exercitationem tempora impedit dignissimos beatae consectetur maxime
+                consequatur nemo ipsam illum ex sint optio, reprehenderit fugit. Laboriosam ipsam quod soluta voluptatem
+                assumenda. Fugiat molestiae laudantium natus impedit sint aliquid facilis omnis rem sit velit voluptates
+                totam expedita deserunt tempore ex, assumenda cumque deleniti iste enim ipsa tempora, molestias ullam
+                quasi. Fuga ratione sit rem quaerat voluptatum similique repudiandae veniam cum nihil.</p>
+        </div>
+    </section>
+    <section class="middle-container" id="read-more">
+        <div class="card">
+            <div class="img first"></div>
+            <div class="title">Web Development</div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam officiis quaerat consequuntur rerum
+                tempore explicabo rem suscipit sequi ut commodi?</p>
+        </div>
+        <div class="card">
+            <div class="img second"></div>
+            <div class="title">Mobile Applications</div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam officiis quaerat consequuntur rerum
+                tempore explicabo rem suscipit sequi ut commodi?</p>
+        </div>
+        <div class="card">
+            <div class="img third"></div>
+            <div class="title">Tech Marketing</div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam officiis quaerat consequuntur rerum
+                tempore explicabo rem suscipit sequi ut commodi?</p>
+        </div>
+    </section>
+    <footer>
+        <section class="top-content">
+            <div class="title">We handle all of your digital needs</div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt atque dicta ipsam ducimus fugit,
+                aliquid iure maxime maiores consequuntur voluptatibus.</p>
+        </section>
+        <section class="middle-content">
+            <div class="contact">
+                <div class="title">Contact Us</div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolorum.</p>
+                <p class="email">mikekim.fullstack@gmail.com</p>
+            </div>
+            <div class="about">
+                <div class="title">About Our Company</div>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates ullam tempore corporis
+                    inventore, distinctio.</p>
+            </div>
+        </section>
+        <section class="bottom-content">
+            <p>LaLaSol Web Solutions</p>
+            <p>Project By <span>LaLaSol Media</span></p>
+        </section>
+    </footer>
+
+<script>// Let's start LaLaSol coding!
+const title = document.querySelector('.title')
+console.log('title-',title)
+title.innerText = title.innerText + 'Hie Mike'</script></body>
+
+</html>
