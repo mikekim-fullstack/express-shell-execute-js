@@ -1,5 +1,7 @@
 const express = require('express')
-
+require("@babel/core").transform("code", {
+    presets: ["@babel/preset-env"],
+});
 var shell = require('shelljs');
 var fs = require('fs');
 
