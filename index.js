@@ -30,7 +30,15 @@ router.get('/', (req, res) => {
     res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
 })
 router.get('/demo/myCar', (req, res) => {
-    res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
+    fs.readFile(`myCar.html`, 'utf8', function read(err, data) {
+        if (err) {
+            // throw err;
+            res.send('<h1>Sorry No Page</h1>')
+            return
+        }
+        // console.log('file-data', data)
+        res.send(data)
+    });
 })
 
 
