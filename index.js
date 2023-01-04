@@ -7,6 +7,9 @@ var fs = require('fs');
 
 
 const app = express();
+const path = require('path')
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
 // app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -29,17 +32,17 @@ app.use('/', router)
 router.get('/', (req, res) => {
     res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
 })
-router.get('/demo/myCar', (req, res) => {
-    fs.readFile(`myCar.html`, 'utf8', function read(err, data) {
-        if (err) {
-            // throw err;
-            res.send('<h1>Sorry No Page</h1>')
-            return
-        }
-        // console.log('file-data', data)
-        res.send(data)
-    });
-})
+// router.get('/demo/myCar', (req, res) => {
+//     fs.readFile(`public/myCar.html`, 'utf8', function read(err, data) {
+//         if (err) {
+//             // throw err;
+//             res.send('<h1>Sorry No Page</h1>')
+//             return
+//         }
+//         // console.log('file-data', data)
+//         res.send(data)
+//     });
+// })
 
 
 
