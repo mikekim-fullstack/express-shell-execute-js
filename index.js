@@ -29,6 +29,9 @@ app.use('/', router)
 router.get('/', (req, res) => {
     res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
 })
+router.get('/demo/myCar', (req, res) => {
+    res.send('<h1>Welcome to LaLaSol JS Shell Server</h1>')
+})
 
 
 
@@ -91,16 +94,17 @@ router.post('/api-html/', (req, res) => {
     // console.log(req.body, htmlCode)
     if (htmlCode) {
         if (!req.body.user || !req.body.id) return res.send('error: bad data')
-        const fileName = `${req.body.user}-${req.body.id}.html`
-        fs.writeFile(fileName, htmlCode, function (err) {
-            if (err) {
-                // console.log('error: ', err)
-                res.send(JSON.stringify(err))
-                return;
-            }
-            res.send(`${htmlCode}`)
+        // const fileName = `${req.body.user}-${req.body.id}.html`
+        // fs.writeFile(fileName, htmlCode, function (err) {
+        //     if (err) {
+        //         // console.log('error: ', err)
+        //         res.send(JSON.stringify(err))
+        //         return;
+        //     }
+        //     res.send(`${htmlCode}`)
 
-        })
+        // })
+        res.send(`${htmlCode}`)
 
     }
     else {
